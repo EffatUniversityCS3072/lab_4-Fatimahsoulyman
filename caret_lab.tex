@@ -1,0 +1,437 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={CARET\_Lab},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{CARET\_Lab}
+\author{}
+\date{\vspace{-2.5em}2023-11-27}
+
+\begin{document}
+\maketitle
+
+Package loading
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'caret' was built under R version 4.3.2
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+Load Data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# attach the iris dataset to the environment}
+\FunctionTok{data}\NormalTok{(iris)}
+\CommentTok{\# rename the dataset}
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ iris}
+\end{Highlighting}
+\end{Shaded}
+
+Task1: Create a Validation/Training Dataset You need to split the loaded
+dataset into two, 80\% of which we will use to train our models and 20\%
+that we will hold back as a validation dataset. Hint: use
+createDataPartition function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{trainRowNumbers }\OtherTok{\textless{}{-}} \FunctionTok{createDataPartition}\NormalTok{(dataset}\SpecialCharTok{$}\NormalTok{Species, }\AttributeTok{p=}\FloatTok{0.8}\NormalTok{, }\AttributeTok{list=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{trainData }\OtherTok{\textless{}{-}}\NormalTok{ dataset[trainRowNumbers,]}
+\NormalTok{testData }\OtherTok{\textless{}{-}}\NormalTok{ dataset[}\SpecialCharTok{{-}}\NormalTok{trainRowNumbers,]}
+\end{Highlighting}
+\end{Shaded}
+
+Task2: Summarize Dataset Use skimr library to summarize the dataset
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(skimr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'skimr' was built under R version 4.3.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{skimmed}\OtherTok{\textless{}{-}}\FunctionTok{skim}\NormalTok{(trainData)}
+\NormalTok{skimmed}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Data summary}\tabularnewline
+\toprule\noalign{}
+\endfirsthead
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Name & trainData \\
+Number of rows & 120 \\
+Number of columns & 5 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Column type frequency: & \\
+factor & 1 \\
+numeric & 4 \\
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ & \\
+Group variables & None \\
+\end{longtable}
+
+\textbf{Variable type: factor}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1728}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1235}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1728}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0988}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3210}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ordered
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_unique
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+top\_counts
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Species & 0 & 1 & FALSE & 3 & set: 40, ver: 40, vir: 40 \\
+\end{longtable}
+
+\textbf{Variable type: numeric}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.1867}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.1333}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.1867}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0533}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0533}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0533}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0533}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 20\tabcolsep) * \real{0.0800}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+skim\_variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+n\_missing
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+complete\_rate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+mean
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+sd
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p0
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p25
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p50
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p75
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+p100
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+hist
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Sepal.Length & 0 & 1 & 5.86 & 0.82 & 4.3 & 5.1 & 5.8 & 6.4 & 7.7 &
+▃▇▇▅▂ \\
+Sepal.Width & 0 & 1 & 3.07 & 0.43 & 2.2 & 2.8 & 3.0 & 3.4 & 4.4 &
+▃▇▇▂▁ \\
+Petal.Length & 0 & 1 & 3.77 & 1.78 & 1.0 & 1.6 & 4.4 & 5.1 & 6.9 &
+▇▁▅▇▂ \\
+Petal.Width & 0 & 1 & 1.20 & 0.77 & 0.1 & 0.3 & 1.3 & 1.8 & 2.5 &
+▇▁▇▅▃ \\
+\end{longtable}
+
+Task3: split input and output It is the time to seperate the input
+attributes and the output attributes. call the inputs attributes x and
+the output attribute (or class) y.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{=}\NormalTok{ trainData[,}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{]}
+\NormalTok{y }\OtherTok{=}\NormalTok{ trainData[,}\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Task4: Train Control for Validation Test
+
+We will use 10-fold crossvalidation to estimate accuracy.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Run algorithms using 10{-}fold cross validation}
+\NormalTok{control }\OtherTok{\textless{}{-}} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method=}\StringTok{"cv"}\NormalTok{, }\AttributeTok{number=}\DecValTok{10}\NormalTok{)}
+\NormalTok{metric }\OtherTok{\textless{}{-}} \StringTok{"Accuracy"}
+\end{Highlighting}
+\end{Shaded}
+
+Task5: Model Training Train 5 different algorithms using `train'
+function:
+
+\begin{itemize}
+\tightlist
+\item
+  Linear Discriminant Analysis (LDA)
+\item
+  Classification and Regression Trees (CART).
+\item
+  k-Nearest Neighbors (kNN).
+\item
+  Support Vector Machines (SVM) with a linear kernel.
+\item
+  Random Forest (RF)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Set the seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\CommentTok{\# Train the model using LDA on the training data itself.}
+\NormalTok{lda\_model }\OtherTok{=} \FunctionTok{train}\NormalTok{(Species }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{trainData, }\AttributeTok{method=}\StringTok{\textquotesingle{}lda\textquotesingle{}}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control, }\AttributeTok{metric=}\NormalTok{metric) }
+\CommentTok{\# Set the seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\CommentTok{\# Train the model using rpart on the training data itself.}
+\NormalTok{rpart\_model }\OtherTok{=} \FunctionTok{train}\NormalTok{(Species }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{trainData, }\AttributeTok{method=}\StringTok{\textquotesingle{}rpart\textquotesingle{}}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control, }\AttributeTok{metric=}\NormalTok{metric) }\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} \# Set the seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\CommentTok{\# Train the model using kNN on the training data itself.}
+\NormalTok{knn\_model }\OtherTok{=} \FunctionTok{train}\NormalTok{(Species }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{trainData, }\AttributeTok{method=}\StringTok{\textquotesingle{}knn\textquotesingle{}}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control, }\AttributeTok{metric=}\NormalTok{metric) }\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} \# Set the seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\CommentTok{\# Train the model using svmRadial on the training data itself.}
+\NormalTok{svm\_model }\OtherTok{=} \FunctionTok{train}\NormalTok{(Species }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{trainData, }\AttributeTok{method=}\StringTok{\textquotesingle{}svmRadial\textquotesingle{}}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control, }\AttributeTok{metric=}\NormalTok{metric) }\CommentTok{\#{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-} \# Set the seed for reproducibility}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\CommentTok{\# Train the model using rf on the training data itself.}
+\NormalTok{rf\_model }\OtherTok{=} \FunctionTok{train}\NormalTok{(Species }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data=}\NormalTok{trainData, }\AttributeTok{method=}\StringTok{\textquotesingle{}rf\textquotesingle{}}\NormalTok{, }\AttributeTok{trControl=}\NormalTok{control, }\AttributeTok{metric=}\NormalTok{metric)}
+\end{Highlighting}
+\end{Shaded}
+
+Task6: Select the Best Model We now have 5 models and accuracy
+estimations for each. We need to compare the models to each other and
+select the most accurate. Use resamples function to complete this task
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Compare model performances using resample()}
+\NormalTok{models\_compare}\OtherTok{\textless{}{-}}\FunctionTok{resamples}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{lda=}\NormalTok{lda\_model, }\AttributeTok{rpart=}\NormalTok{rpart\_model, }\AttributeTok{knn=}\NormalTok{knn\_model, }\AttributeTok{svm=}\NormalTok{svm\_model, }\AttributeTok{rf=}\NormalTok{rf\_model))}
+\CommentTok{\# Summary of the models performances}
+\FunctionTok{summary}\NormalTok{(models\_compare)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## summary.resamples(object = models_compare)
+## 
+## Models: lda, rpart, knn, svm, rf 
+## Number of resamples: 10 
+## 
+## Accuracy 
+##            Min.   1st Qu.    Median      Mean 3rd Qu. Max. NA's
+## lda   0.9166667 0.9375000 1.0000000 0.9750000       1    1    0
+## rpart 0.8333333 0.8541667 0.9166667 0.9250000       1    1    0
+## knn   0.9166667 1.0000000 1.0000000 0.9833333       1    1    0
+## svm   0.8333333 0.9166667 0.9583333 0.9416667       1    1    0
+## rf    0.9166667 0.9166667 1.0000000 0.9666667       1    1    0
+## 
+## Kappa 
+##        Min. 1st Qu. Median   Mean 3rd Qu. Max. NA's
+## lda   0.875 0.90625 1.0000 0.9625       1    1    0
+## rpart 0.750 0.78125 0.8750 0.8875       1    1    0
+## knn   0.875 1.00000 1.0000 0.9750       1    1    0
+## svm   0.750 0.87500 0.9375 0.9125       1    1    0
+## rf    0.875 0.87500 1.0000 0.9500       1    1    0
+\end{verbatim}
+
+What was the most accurate model? The most accurate model is the KNN
+model
+
+Task7: Make Prediction (Confusion Matrix) Now we want to get an idea of
+the accuracy of the best model on our validation set. Use `predict' and
+confusionMatrix functions to complete this task.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Predict on testData using lda\_model}
+\NormalTok{predicted }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(lda\_model, testData) }
+\FunctionTok{confusionMatrix}\NormalTok{(}\AttributeTok{reference=}\NormalTok{ testData}\SpecialCharTok{$}\NormalTok{Species,}\AttributeTok{data =}\NormalTok{ predicted)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##             Reference
+## Prediction   setosa versicolor virginica
+##   setosa         10          0         0
+##   versicolor      0          9         0
+##   virginica       0          1        10
+## 
+## Overall Statistics
+##                                           
+##                Accuracy : 0.9667          
+##                  95% CI : (0.8278, 0.9992)
+##     No Information Rate : 0.3333          
+##     P-Value [Acc > NIR] : 2.963e-13       
+##                                           
+##                   Kappa : 0.95            
+##                                           
+##  Mcnemar's Test P-Value : NA              
+## 
+## Statistics by Class:
+## 
+##                      Class: setosa Class: versicolor Class: virginica
+## Sensitivity                 1.0000            0.9000           1.0000
+## Specificity                 1.0000            1.0000           0.9500
+## Pos Pred Value              1.0000            1.0000           0.9091
+## Neg Pred Value              1.0000            0.9524           1.0000
+## Prevalence                  0.3333            0.3333           0.3333
+## Detection Rate              0.3333            0.3000           0.3333
+## Detection Prevalence        0.3333            0.3000           0.3667
+## Balanced Accuracy           1.0000            0.9500           0.9750
+\end{verbatim}
+
+\end{document}
