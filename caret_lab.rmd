@@ -1,0 +1,84 @@
+---
+title: "CARET_Lab"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Package loading
+```{r}
+library(caret)
+```
+
+Load Data
+```{r}
+# attach the iris dataset to the environment
+data(iris)
+# rename the dataset
+dataset <- iris
+```
+
+Task1: Create a Validation/Training Dataset
+You need to split the loaded dataset into two, 80% of which we will use to train our models and 20% that we will hold back as a validation dataset.
+Hint: use createDataPartition function
+```{r}
+
+```
+
+Task2: Summarize Dataset
+Use skimr library to summarize the dataset
+```{r}
+
+```
+
+Task3: split input and output
+ It is the time to seperate the input attributes and  the output attributes. call the inputs attributes x and the output attribute (or class) y.
+```{r}
+
+```
+
+Task4: Train Control for Validation Test
+
+We will use 10-fold crossvalidation to estimate accuracy.
+```{r}
+# Run algorithms using 10-fold cross validation
+control <- trainControl(method="cv", number=10)
+metric <- "Accuracy"
+```
+
+Task5: Model Training
+Train 5 different algorithms using 'train' function:
+
+- Linear Discriminant Analysis (LDA)
+- Classification and Regression Trees (CART).
+- k-Nearest Neighbors (kNN).
+- Support Vector Machines (SVM) with a linear kernel.
+- Random Forest (RF)
+
+```{r}
+
+
+```
+
+Task6: Select the Best Model
+We now have 5 models and accuracy estimations for each. We need to compare the models to each other and select the most accurate.
+Use resamples function to complete this task
+
+```{r}
+
+
+```
+What was the most accurate model?
+
+
+Task7: Make Prediction (Confusion Matrix)
+Now we want to get an idea of the accuracy of the best model on our validation set. Use 'predict' and confusionMatrix functions to complete this task.
+
+```{r}
+
+
+```
+
